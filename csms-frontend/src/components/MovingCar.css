@@ -1,0 +1,63 @@
+/* wrapper fixed at bottom of content area */
+.mc-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 260px;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 50;
+  overflow: visible;
+}
+
+/* road strip */
+.mc-road {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  height: 45px;
+  background: rgba(0,0,0,0.35);
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+/* dashed center line */
+.mc-dashes {
+  position: absolute;
+  top: 20px;
+  left: 0; right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.18) 0px,
+    rgba(255,255,255,0.18) 40px,
+    transparent 40px,
+    transparent 80px
+  );
+  animation: mcDash 0.3s linear infinite;
+}
+
+@keyframes mcDash {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-80px); }
+}
+
+/* small car image */
+.mc-car {
+  position: absolute;
+  bottom: 42px;
+  width: 160px;
+  height: auto;
+  animation: mcDrive 7s linear infinite,
+             mcBounce 0.18s ease-in-out infinite alternate;
+  filter: drop-shadow(0 6px 16px rgba(192,57,43,0.5));
+}
+
+@keyframes mcDrive {
+  0%   { left: -200px; }
+  100% { left: 110%; }
+}
+
+@keyframes mcBounce {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-3px); }
+}

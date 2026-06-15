@@ -1,0 +1,13 @@
+node_modules/
+target/
+dist/
+build/
+
+*.log
+.backend-java-args.txt
+
+.vscode/
+.idea/
+
+.env
+*.local

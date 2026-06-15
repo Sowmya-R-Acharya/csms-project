@@ -1,0 +1,137 @@
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Moving car background */
+.auth-page::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1920&q=90');
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position: 0% center;
+  animation: authBgPan 12s linear infinite;
+  z-index: -2;
+}
+
+@keyframes authBgPan {
+  0%   { background-position: 0% center; }
+  100% { background-position: 100% center; }
+}
+
+/* Color overlay */
+.auth-page::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(192, 57, 43, 0.55) 0%,
+    rgba(13, 13, 26, 0.75) 50%,
+    rgba(41, 128, 185, 0.4) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.auth-left {
+  display: none;
+}
+
+.auth-right {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.auth-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.auth-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.auth-submit-btn:hover {
+  background: var(--primary-dark);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.auth-switch a {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* Auth form field overrides */
+.auth-card .form-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.auth-card .form-input {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.auth-card .form-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.auth-card .form-input:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.auth-card .form-input option {
+  background: #1a1a2e;
+  color: #fff;
+}
